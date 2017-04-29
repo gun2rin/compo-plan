@@ -1,0 +1,32 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+    <div class="alert alert-danger" role="alert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<form class="form-signin" action="{{ path("fos_user_security_check") }}" method="post">
+
+    {% if 'single_image' == sonata_admin.adminPool.getOption('title_mode') or 'both' == sonata_admin.adminPool.getOption('title_mode') %}
+
+        <img class="form-signin-heading" style="margin-left: 40px" src="{{ asset(sonata_admin.adminPool.titlelogo) }}" alt="{{ sonata_admin.adminPool.title }}">
+    {% endif %}
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% endif %}
+
+    <label  class="sr-only" for="username">{{ 'security.login.username'|trans }}</label>
+    <input  class="form-control" placeholder="{{ 'security.login.username'|trans }}" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+    <br/>
+    <label class="sr-only" for="password">{{ 'security.login.password'|trans }}</label>
+    <input class="form-control" placeholder="{{ 'security.login.password'|trans }}" type="password" id="password" name="_password" required="required" />
+
+
+
+    <div class="checkbox">
+        <label for="remember_me"><input class="checkbox" type="checkbox" id="remember_me" name="_remember_me" value="on" /> {{ 'security.login.remember_me'|trans }}</label>
+
+    </div>
+
+
+    <input class="btn btn-lg btn-primary btn-block" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+</form>

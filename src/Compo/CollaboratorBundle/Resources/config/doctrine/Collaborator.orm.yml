@@ -1,0 +1,46 @@
+Compo\CollaboratorBundle\Entity\Collaborator:
+    type: entity
+    repositoryClass: Compo\CollaboratorBundle\Repository\CollaboratorRepository
+    table: fos_user
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        firstname:
+            type: string
+            length: 255
+            nullable: true
+        secondname:
+             type: string
+             length: 255
+             nullable: true
+        position:
+             type: string
+             length: 255
+             nullable: true
+        salary:
+             type: string
+             length: 255
+             nullable: true
+        created_at:
+             type: datetime
+    manyToMany:
+            groups:
+                targetEntity: Group
+                joinTable:
+                    name: fos_user_group
+                    joinColumns:
+                        user_id:
+                            referencedColumnName: id
+                    inverseJoinColumns:
+                        group_id:
+                            referencedColumnName: id
+    manyToOne:
+            department:
+                targetEntity: Compo\DepartmentBundle\Entity\Department
+                joinColumn:
+                    name: department_id
+                    referencedColumnName: id
+    lifecycleCallbacks:
+         prePersist: [setCreatedAtValue]

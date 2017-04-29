@@ -1,0 +1,17 @@
+sonata_admin:
+   templates:
+        layout:  AppBundle::standard_layout.html.twig
+   title: Compo planning
+   title_logo: /bundles/app/assets/images/compo_logo.png
+
+
+   dashboard:
+            groups:
+               company:
+                  icon:  '<i class="fa fa-building-o"></i>'
+                  label: 'company'
+                  items:
+                       - collaborator.admin.collaborator
+                       - department.admin.department
+                       - collaborator.admin.group
+                  roles: [ROLE_DIRECTOR]

@@ -1,0 +1,3 @@
+collaborator_homepage:
+    path:     /
+    defaults: { _controller: CollaboratorBundle:Default:index }

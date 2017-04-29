@@ -1,0 +1,21 @@
+#department:
+#    resource: "@DepartmentBundle/Resources/config/routing.yml"
+
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /manage
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /manage
+
+root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: sonata_admin_dashboard
+        permanent: true
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

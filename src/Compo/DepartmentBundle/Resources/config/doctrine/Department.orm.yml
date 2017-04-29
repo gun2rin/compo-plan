@@ -1,0 +1,13 @@
+Compo\DepartmentBundle\Entity\Department:
+    type: entity
+    repositoryClass: Compo\DepartmentBundle\Repository\DepartmentRepository
+    table: departments
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        header:
+            type: string
+            length: 255
+            nullable: false
