@@ -73,6 +73,8 @@ delete all containers with cache and networks
 
 Since we are in docker containers, we need to run console commands in php container.
 
-So ours lovely command `php bin/console <whatever>` must be turned to `docker container exec compo-plan-php php bin/console <whatever>` 
+So ours lovely command `php bin/console <whatever>` must be turned to 
+
+`docker container exec compo-plan-php php bin/console <whatever>` 
 
 **compo-plan-php** is an alias for ours php container. see docker-compose.yml
