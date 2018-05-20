@@ -14,6 +14,7 @@ services:
           crv_dev_network:
             aliases:
               - mysql
+        container_name: compo-plan-mysql
 
     nginx:
         image: nginx:1.13.12
@@ -48,7 +49,7 @@ services:
           crv_dev_network:
             aliases:
               - php
-
+        container_name: compo-plan-php
     #composer:
           #restart: 'no'
           #image: composer/composer:php7
