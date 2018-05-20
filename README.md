@@ -3,6 +3,7 @@ Compo-plan demo with docker
 
 Docker and docker-compose required to be installed
 https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce
+
 https://docs.docker.com/compose/install/#install-compose
 
 **Install**
@@ -24,7 +25,7 @@ https://docs.docker.com/compose/install/#install-compose
 
 **Create super user**
 
-`php app/console fos:user:create root --super-admin`
+`php bin/console fos:user:create root --super-admin`
 
 **Welcome**
 
@@ -40,4 +41,5 @@ Left default database parameters while installing dependencies with composer
 **Rights**
 
 var/cache
+var/sessions
 var/logs folders required to have 777 rights
