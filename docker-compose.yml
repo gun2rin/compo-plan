@@ -1,4 +1,4 @@
-version: '3'
+version: '3.3'
 
 services:
 
@@ -31,6 +31,7 @@ services:
             aliases:
               - nginx
 
+
     php:
         image: php:7.2-fpm
         restart: always
@@ -38,6 +39,11 @@ services:
           - docker/.env
         volumes:
           - ./:/var/www/compo-plan
+        build:
+          context: ./
+          dockerfile: docker/php/Dockerfile
+        links:
+          - db
         networks:
           crv_dev_network:
             aliases:
