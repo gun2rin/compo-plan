@@ -201,10 +201,10 @@ class CollaboratorAdmin extends AbstractAdmin
 
         $query->andWhere(
             $query->expr()->neq($query->getRootAliases()[0] . '.username', ':my_param')
-        );
+         );
+
         $query->setParameter('my_param', 'root');
         return $query;
-
 
     }
 
