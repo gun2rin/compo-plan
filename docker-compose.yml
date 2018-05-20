@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+
+    db:
+        image: mysql:5.7.17
+        env_file:
+          - docker/.env
+        volumes:
+          - db_data:/var/lib/mysql
+        ports:
+          - "3366:3306"
+        networks:
+          crv_dev_network:
+            aliases:
+              - mysql
+
+    nginx:
+        image: nginx:1.13.12
+        ports:
+          - "8585:80"
+        restart: always
+        volumes:
+          - ./:/var/www/compo-plan
+          - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+          - ./docker/nginx/compo-plan.conf:/etc/nginx/compo-plan.conf
+        depends_on:
+            - php
+        networks:
+          crv_dev_network:
+            aliases:
+              - nginx
+
+    php:
+        image: php:7.2-fpm
+        restart: always
+        env_file:
+          - docker/.env
+        volumes:
+          - ./:/var/www/compo-plan
+        networks:
+          crv_dev_network:
+            aliases:
+              - php
+
+    #composer:
+          #restart: 'no'
+          #image: composer/composer:php7
+          #volumes:
+             #- ./:/var/www/compo-plan
+          #command: install -d /var/www/compo-plan
+volumes:
+  db_data:
+
+networks:
+  crv_dev_network:
+    driver: bridge
