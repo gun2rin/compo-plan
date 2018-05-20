@@ -1,4 +1,4 @@
-Compo-plan demo with docker 
+Demo symfony app with docker
 =========
 
 Docker and docker-compose required to be installed
