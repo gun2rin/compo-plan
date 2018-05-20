@@ -17,6 +17,9 @@ https://docs.docker.com/compose/install/#install-compose
 **Start up containers**
 
 Better in new terminal
+
+rights of the **var/** directory must be 777 before
+
 `docker-compose up`
 
 **Create DB**
@@ -28,11 +31,13 @@ docker container exec compo-plan-php php bin/console doctrine:schema:update --fo
 
 **Create super user**
 
-`docker container exec compo-plan-php php bin/console fos:user:create root --super-admin`
+`docker container exec compo-plan-php php bin/console fos:user:create root --super-admin test@test.ru 11111111`
+
+this command will create super user with login **root** and password **11111111**
 
 **Welcome**
 
-Type http://localhost:8585/ in browser address bar
+Type http://localhost:8585/app_dev.php in browser address bar
 
 ***Notes***
 
