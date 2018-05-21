@@ -39,6 +39,11 @@ this command will create super user with login **root** and password **11111111*
 
 Type http://localhost:8585/app_dev.php in browser address bar
 
+Dashboard login/pass is as you created on previous step:
+
+login: root
+pass: 11111111
+
 ***Notes***
 
 **parameters.yml.dist**
