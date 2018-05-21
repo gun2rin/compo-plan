@@ -1,6 +1,8 @@
 Demo symfony app based on compo-plan app with docker / built for compo programmers / dev env
 =========
 
+ [![Build Status](https://travis-ci.com/comporu/compo-plan.svg?token=Wm83L8fqS3rA3qLbfpD2&branch=master)](https://travis-ci.com/comporu/compo-plan)
+
 Docker and docker-compose are required to be installed
 
 https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce

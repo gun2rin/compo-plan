@@ -1,6 +1,7 @@
 {
     "name": "vladimir/compo-plan",
-    "license": "proprietary",
+    "description": "Training symfony app based on compo-plan app",
+    "license": "MIT",
     "type": "project",
     "autoload": {
         "psr-4": {
