@@ -1,7 +1,8 @@
-Demo symfony app with docker / built for compo programmers
+Demo symfony app based on compo-plan app with docker / built for compo programmers / dev env
 =========
 
 Docker and docker-compose required to be installed
+
 https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce
 
 https://docs.docker.com/compose/install/#install-compose
