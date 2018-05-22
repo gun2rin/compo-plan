@@ -1,7 +1,7 @@
 Demo symfony app based on compo-plan app with docker / built for compo programmers / dev env
 =========
 
- [![Build Status](https://travis-ci.com/comporu/compo-plan.svg?token=Wm83L8fqS3rA3qLbfpD2&branch=master)](https://travis-ci.com/comporu/compo-plan)
+ [![Build Status](https://travis-ci.com/comporu/compo-plan.svg?token=Wm83L8fqS3rA3qLbfpD2&branch=master)](https://travis-ci.com/comporu/compo-plan) [![buddy pipeline](https://app.buddy.works/comporu/compo-plan/pipelines/pipeline/137696/badge.svg?token=fc1497672c816787d99074f21845ccc6843d7bb0f1151cd28e3d2d9a99711876 "buddy pipeline")](https://app.buddy.works/comporu/compo-plan/pipelines/pipeline/137696)
 
 Docker and docker-compose are required to be installed
 
