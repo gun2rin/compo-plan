@@ -3,6 +3,8 @@
     "description": "Training symfony app based on compo-plan app",
     "license": "MIT",
     "type": "project",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "AppBundle\\": "src/AppBundle",
