@@ -1,6 +1,10 @@
 {
     "name": "vladimir/compo-plan",
     "description": "Training symfony app based on compo-plan app",
+    "keywords": [
+        "symfony",
+        "sonata"
+    ],
     "license": "MIT",
     "type": "project",
     "minimum-stability": "stable",
