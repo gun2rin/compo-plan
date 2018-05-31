@@ -19,11 +19,13 @@ https://docs.docker.com/compose/install/#install-compose
 
 **Start up containers**
 
-Better in new terminal
-
 rights of the **var/** directory must be 777 before
 
-`docker-compose up`
+`docker-compose up` in a new terminal 
+
+or
+
+`docker-compose up -d` in a same terminal (Detached mode: Run containers in the background) 
 
 **Create DB**
 
