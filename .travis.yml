@@ -1,21 +1,24 @@
+dist: trusty
+sudo: required
+
 language: php
-sudo: false
+
+
+services:
+  - docker
 
 #addons:
 #  apt:
 #    update: true
 
-cache:
-  directories:
-    - $HOME/.composer/cache/files
-#    - $HOME/symfony-bridge/.phpunit
+cache: false
 
 env:
   global:
 #    - SYMFONY_PHPUNIT_DIR="$HOME/symfony-bridge/.phpunit"
 #    - SYMFONY_PHPUNIT_VERSION="6.3"
+#     - DOCKER_COMPOSE_VERSION=1.21.2
 
-dist: bionic
 
 matrix:
   fast_finish: true
@@ -28,9 +31,13 @@ matrix:
 before_install:
   - '[[ "$TRAVIS_PHP_VERSION" == "nightly" ]] || phpenv config-rm xdebug.ini'
 #  - composer self-update
+#  - sudo rm /usr/local/bin/docker-compose
 
 install:
-  - composer install --no-progress --no-interaction --no-suggest
+    - composer install --no-progress --no-interaction --no-suggest
+    - docker-compose up -d
+    - docker-compose down
+
 #  - ./vendor/bin/simple-phpunit install
 
 script:
@@ -50,9 +57,11 @@ script:
   - composer validate
 
   # this checks that Doctrine's mapping configurations are valid
-#  - ./bin/console doctrine:schema:validate --skip-sync -vvv --no-interaction
+  #  - ./bin/console doctrine:schema:validate --skip-sync -vvv --no-interaction
 
-#  - ./vendor/bin/simple-phpunit
+  #  - ./vendor/bin/simple-phpunit
   # this checks that the source code follows the Symfony Code Syntax rules
-#  - '[[ "$TRAVIS_PHP_VERSION" == "nightly" ]] || ./vendor/bin/php-cs-fixer fix --diff --dry-run -v'
+  #  - '[[ "$TRAVIS_PHP_VERSION" == "nightly" ]] || ./vendor/bin/php-cs-fixer fix --diff --dry-run -v'
+
+
 
