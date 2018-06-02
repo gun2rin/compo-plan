@@ -1,7 +1,22 @@
 version: '3.3'
 
 services:
-
+    dockerize:
+        env_file:
+              - docker/.env
+        build:
+           context: ./
+           dockerfile: docker/dockerize/Dockerfile
+        depends_on:
+              - db
+        links:
+              - db
+              - nginx
+        networks:
+            crv_dev_network:
+                aliases:
+                    - dockerize
+        container_name: compo-plan-dockerize
     db:
         image: mysql:5.7.17
         env_file:
@@ -15,7 +30,6 @@ services:
             aliases:
               - mysql
         container_name: compo-plan-mysql
-
     nginx:
         image: nginx:1.13.12
         ports:
@@ -43,6 +57,8 @@ services:
         build:
           context: ./
           dockerfile: docker/php/Dockerfile
+        depends_on:
+              - db
         links:
           - db
         networks:
