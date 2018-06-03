@@ -17,7 +17,7 @@ env:
   global:
 #    - SYMFONY_PHPUNIT_DIR="$HOME/symfony-bridge/.phpunit"
 #    - SYMFONY_PHPUNIT_VERSION="6.3"
-#     - DOCKER_COMPOSE_VERSION=1.21.2
+#     - DOCKERIZE_VERSION=v0.6.1
 
 
 matrix:
@@ -30,12 +30,21 @@ matrix:
 
 before_install:
   - '[[ "$TRAVIS_PHP_VERSION" == "nightly" ]] || phpenv config-rm xdebug.ini'
-#  - composer self-update
-#  - sudo rm /usr/local/bin/docker-compose
+  #  - composer self-update
+  #  - sudo rm /usr/local/bin/docker-compose
+  # - wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+  # - sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+  # - sudo rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+
 
 install:
     - composer install --no-progress --no-interaction --no-suggest
-    - docker-compose up -d
+    - cp ./app/config/parameters.yml.dist ./app/config/parameters.yml
+    - docker-compose up -d --build
+    - docker container exec compo-plan-dockerize dockerize -wait tcp://db:3306 -wait http://nginx -timeout 20s
+    # - sleep 15
+    - docker container exec compo-plan-php php bin/console doctrine:schema:update --force -vvv
+    - docker container exec compo-plan-php php bin/console fos:user:create root --super-admin test@test.ru 11111111
     - docker-compose down
 
 #  - ./vendor/bin/simple-phpunit install
