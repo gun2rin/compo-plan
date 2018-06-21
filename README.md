@@ -17,6 +17,8 @@ https://docs.docker.com/compose/install/#install-compose
 
 `composer install`
 
+OR  `composer create-project vladimir/compo-plan --stability dev`
+
 **Start up containers**
 
 rights of the **var/** directory must be 777 before
