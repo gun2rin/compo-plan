@@ -9,15 +9,18 @@ https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce
 
 https://docs.docker.com/compose/install/#install-compose
 
-**Install**
+**Install via composer**
 
-`git clone git@github.com:comporu/compo-plan.git`
+`composer create-project vladimir/compo-plan --stability dev`
 
-**Install dependencies**
 
-`composer install`
+**Install via GitHub**
 
-OR  `composer create-project vladimir/compo-plan --stability dev`
+ `git clone git@github.com:comporu/compo-plan.git`
+
+install dependencies `composer install`
+
+OR  
 
 **Start up containers**
 
