@@ -16,7 +16,7 @@ https://docs.docker.com/compose/install/#install-compose
 
 **Install via GitHub**
 
- `git clone git@github.com:comporu/compo-plan.git`
+`git clone git@github.com:comporu/compo-plan.git`
 
 install dependencies `composer install`
 
